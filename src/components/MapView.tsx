@@ -14,6 +14,8 @@ type MapViewProps = {
   onChangeBBox: (bbox: BBox) => void
   basemap?: Basemap
   drawingTool?: DrawingTool
+  center?: [number, number]
+  zoom?: number
 }
 
 const DEFAULT_CENTER: [number, number] = [0, 0]
@@ -49,7 +51,7 @@ const getBasemapStyle = (basemap: Basemap): string | maplibregl.StyleSpecificati
   }
 }
 
-const MapView = ({ bbox, onChangeBBox, basemap = 'street', drawingTool = 'rectangle' }: MapViewProps) => {
+const MapView = ({ bbox, onChangeBBox, basemap = 'street', drawingTool = 'rectangle', center, zoom }: MapViewProps) => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null)
   const mapRef = useRef<Map | null>(null)
   const clickStateRef = useRef<{ firstPoint: [number, number] | null }>({ firstPoint: null })
@@ -68,8 +70,8 @@ const MapView = ({ bbox, onChangeBBox, basemap = 'street', drawingTool = 'rectan
     const map = new maplibregl.Map({
       container: mapContainerRef.current,
       style: getBasemapStyle(basemap),
-      center: DEFAULT_CENTER,
-      zoom: DEFAULT_ZOOM,
+      center: center || DEFAULT_CENTER,
+      zoom: zoom || DEFAULT_ZOOM,
     })
 
     mapRef.current = map
@@ -222,6 +224,18 @@ const MapView = ({ bbox, onChangeBBox, basemap = 'street', drawingTool = 'rectan
       }
     })
   }, [basemap, bbox])
+
+  // Update map center and zoom when they change
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map || !center) return
+
+    map.flyTo({
+      center: center,
+      zoom: zoom || 12,
+      duration: 1000,
+    })
+  }, [center, zoom])
 
   // Update bbox layer when bbox changes
   useEffect(() => {
