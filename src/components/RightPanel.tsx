@@ -1,15 +1,12 @@
 import { useState } from 'react'
-import type { BBox } from './MapView'
-
-interface RightPanelProps {
-  bbox: BBox | null
-}
+import { useMapStore } from '../store/mapStore'
 
 const MIN_WIDTH = 0
 const DEFAULT_WIDTH = 300
 
-const RightPanel = ({ bbox }: RightPanelProps) => {
+const RightPanel = () => {
   const [isCollapsed, setIsCollapsed] = useState(false)
+  const bbox = useMapStore((state) => state.bbox)
 
   const handleToggle = () => {
     setIsCollapsed(!isCollapsed)
@@ -23,18 +20,18 @@ const RightPanel = ({ bbox }: RightPanelProps) => {
       {isCollapsed && (
         <button
           onClick={handleToggle}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-16 bg-surface border border-r border-border rounded-r-lg shadow-lg flex items-center justify-center hover:bg-bg transition-colors"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-16 bg-surface border border-l border-border rounded-l-lg shadow-lg flex items-center justify-center hover:bg-bg transition-colors"
           aria-label="Open panel"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
       )}
 
       {/* Panel */}
       <div
-        className="h-full bg-surface border-r border-border flex flex-col transition-all duration-200 relative"
+        className="h-full bg-surface border-l border-border flex flex-col transition-all duration-200 relative"
         style={{ width: `${currentWidth}px` }}
       >
         {/* Panel Content */}

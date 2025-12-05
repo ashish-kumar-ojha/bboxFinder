@@ -19,7 +19,7 @@ const SidePanel = ({ basemap, onBasemapChange, drawingTool, onDrawingToolChange 
 
 
   return (
-    <div className="maplibregl-ctrl maplibregl-ctrl-group absolute top-2.5 right-2.5 z-10">
+    <div className="maplibregl-ctrl maplibregl-ctrl-group absolute top-2.5 left-2.5 z-10">
       {/* Basemap Selector */}
       <div
         className="relative"
@@ -37,7 +37,7 @@ const SidePanel = ({ basemap, onBasemapChange, drawingTool, onDrawingToolChange 
         </button>
         
         {hoveredBasemap && (
-          <div className="absolute right-0 top-0 mt-9 w-32 bg-surface border border-border rounded-sm shadow-lg overflow-hidden text-text">
+          <div className="absolute left-0 top-0 mt-9 w-32 bg-surface border border-border rounded-sm shadow-lg overflow-hidden text-text">
             <button
               onClick={() => {
                 onBasemapChange('street')
@@ -83,7 +83,7 @@ const SidePanel = ({ basemap, onBasemapChange, drawingTool, onDrawingToolChange 
         </button>
         
         {hoveredTool && (
-          <div className="absolute right-0 top-0 mt-9 w-32 bg-surface border border-border rounded-sm shadow-lg overflow-hidden text-text">
+          <div className="absolute left-0 top-0 mt-9 w-32 bg-surface border border-border rounded-sm shadow-lg overflow-hidden text-text">
             <button
               onClick={() => {
                 onDrawingToolChange('rectangle')
