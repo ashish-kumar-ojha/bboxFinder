@@ -1,12 +1,11 @@
 import { useState } from 'react'
-import { useMapStore } from '../store/mapStore'
 
 const MIN_WIDTH = 0
 const DEFAULT_WIDTH = 300
 
 const RightPanel = () => {
   const [isCollapsed, setIsCollapsed] = useState(false)
-  const bbox = useMapStore((state) => state.bbox)
+  const bbox = null
 
   const handleToggle = () => {
     setIsCollapsed(!isCollapsed)
