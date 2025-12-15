@@ -1,32 +1,36 @@
-import { useState } from 'react'
-import MapView, { type BBox } from './components/MapView'
-import SidePanel, { type Basemap, type DrawingTool } from './components/SidePanel'
+import MapInitializer from "./map/MapInitializer"
+import SidePanel from './components/SidePanel'
 import RightPanel from './components/RightPanel'
+import GeocodingSearch from './components/GeocodingSearch'
+import { mapController } from './map/MapController'
+import HoverCoordinates from "./widgets/HoverCoordinates"
+
 
 const App = () => {
-  const [bbox, setBBox] = useState<BBox | null>(null)
-  const [basemap, setBasemap] = useState<Basemap>('street')
-  const [drawingTool, setDrawingTool] = useState<DrawingTool>('rectangle')
+
+  const handleLocationSelect = (lat: number, lng: number) => {
+    const map = mapController.getMap()
+    if (map) {
+      map.flyTo({
+        center: [lng, lat],
+        zoom: 12,
+        duration: 1000,
+      })
+    }
+  }
 
   return (
     <div className="w-screen h-screen flex flex-col bg-bg text-(--color-text)">
-    
       <main className="flex-1 flex min-h-0 relative">
-        <RightPanel bbox={bbox} />
-        <div className="flex-1 min-w-0">
-          <MapView 
-            bbox={bbox} 
-            onChangeBBox={setBBox} 
-            basemap={basemap}
-            drawingTool={drawingTool}
-          />
+        <SidePanel />
+        <div className="flex-1 min-w-0 relative">
+          <GeocodingSearch onLocationSelect={handleLocationSelect} />
+          <div style={{ width: "100vw", height: "100vh" }}>
+            <MapInitializer />
+            <HoverCoordinates />  
+          </div>
         </div>
-        <SidePanel
-          basemap={basemap}
-          onBasemapChange={setBasemap}
-          drawingTool={drawingTool}
-          onDrawingToolChange={setDrawingTool}
-        />
+        <RightPanel />
       </main>
     </div>
   )
