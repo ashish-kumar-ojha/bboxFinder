@@ -5,7 +5,6 @@ const DEFAULT_WIDTH = 300
 
 const RightPanel = () => {
   const [isCollapsed, setIsCollapsed] = useState(false)
-  const bbox = null
 
   const handleToggle = () => {
     setIsCollapsed(!isCollapsed)
@@ -54,7 +53,7 @@ const RightPanel = () => {
               </button>
             </div>
 
-            {/* Content */}
+            {/* Content
             <div className="flex-1 overflow-y-auto p-4">
               {bbox ? (
                 <div className="space-y-4">
@@ -114,7 +113,7 @@ const RightPanel = () => {
                   <p>Click two points on the map to define a bounding box</p>
                 </div>
               )}
-            </div>
+            </div> */}
           </div>
         )}
       </div>
