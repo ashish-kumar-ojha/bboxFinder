@@ -1,12 +1,10 @@
 // src/map/MapController.ts
-import type maplibregl from "maplibre-gl"
-import { TerraDraw } from "terra-draw"
+import type maplibregl from 'maplibre-gl'
+import { TerraDraw } from 'terra-draw'
 
 class MapController {
-  private map: maplibregl.Map | null = null;
-  private draw: TerraDraw | null = null;
-
-
+  private map: maplibregl.Map | null = null
+  private draw: TerraDraw | null = null
 
   //Map Methods
   setMap(map: maplibregl.Map) {
@@ -23,10 +21,9 @@ class MapController {
   }
 
   getDraw() {
-    if (!this.draw) throw new Error("TerraDraw not initialized")
+    if (!this.draw) throw new Error('TerraDraw not initialized')
     return this.draw
   }
-
 
   // Clean Up Methods
 

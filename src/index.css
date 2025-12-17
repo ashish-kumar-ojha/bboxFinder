@@ -2,24 +2,24 @@
 
 @theme {
   /* Base colors */
-  --color-primary: #0077C0;
-  --color-secondary: #6A7EFC;
-  --color-accent: #7AE2CF;
-  --color-light-accent: #C7EEFF;
-  
+  --color-primary: #0077c0;
+  --color-secondary: #6a7efc;
+  --color-accent: #7ae2cf;
+  --color-light-accent: #c7eeff;
+
   /* Light theme (default) */
-  --color-bg: #FAFAFA;
+  --color-bg: #fafafa;
   --color-surface: #ffffff;
-  --color-text: #1D242B;
-  --color-text-muted: #1D242B;
+  --color-text: #1d242b;
+  --color-text-muted: #1d242b;
   --color-border: #e5e7eb;
 }
 
 /* Dark theme */
-[data-theme="dark"] {
-  --color-bg: #1D242B;
-  --color-surface: #1D242B;
-  --color-text: #FAFAFA;
-  --color-text-muted: #C7EEFF;
+[data-theme='dark'] {
+  --color-bg: #1d242b;
+  --color-surface: #1d242b;
+  --color-text: #fafafa;
+  --color-text-muted: #c7eeff;
   --color-border: #374151;
 }

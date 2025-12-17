@@ -47,9 +47,9 @@ const GeocodingSearch = ({ onLocationSelect }: GeocodingSearchProps) => {
           `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&addressdetails=1`,
           {
             headers: {
-              'User-Agent': 'BBoxFinder/1.0'
-            }
-          }
+              'User-Agent': 'BBoxFinder/1.0',
+            },
+          },
         )
         const data = await response.json()
         setSuggestions(data)
@@ -86,12 +86,7 @@ const GeocodingSearch = ({ onLocationSelect }: GeocodingSearchProps) => {
       <div className="relative">
         <div className="relative flex items-center">
           <div className="absolute left-3 pointer-events-none">
-            <svg
-              className="w-5 h-5 text-(--color-text-muted)"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="w-5 h-5 text-(--color-text-muted)" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -116,14 +111,7 @@ const GeocodingSearch = ({ onLocationSelect }: GeocodingSearchProps) => {
                 fill="none"
                 viewBox="0 0 24 24"
               >
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                />
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                 <path
                   className="opacity-75"
                   fill="#7AE2CF"
@@ -137,7 +125,7 @@ const GeocodingSearch = ({ onLocationSelect }: GeocodingSearchProps) => {
         {/* Suggestions Dropdown */}
         {showSuggestions && suggestions.length > 0 && (
           <div className="absolute mt-1 w-full bg-surface border border-border rounded-lg shadow-lg overflow-hidden z-30 max-h-60 overflow-y-auto">
-            {suggestions.map((result) => (
+            {suggestions.map(result => (
               <button
                 key={result.place_id}
                 onClick={() => handleSelect(result)}
@@ -154,4 +142,3 @@ const GeocodingSearch = ({ onLocationSelect }: GeocodingSearchProps) => {
 }
 
 export default GeocodingSearch
-
