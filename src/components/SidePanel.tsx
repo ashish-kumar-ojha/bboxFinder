@@ -67,6 +67,28 @@ const SidePanel = () => {
           </svg>
         </button>
 
+        {/* Rectangle Tool */}
+        <button
+          onClick={() => activateTool('rectangle')}
+          className={`relative p-2 rounded-lg border transition-all duration-200 cursor-pointer ${
+            activeTool === 'rectangle'
+              ? 'bg-primary border-primary shadow-md scale-[1.02]'
+              : 'bg-surface border-border hover:border-primary/50 hover:bg-muted/50 hover:shadow-sm'
+          }`}
+          title="Draw Rectangle"
+          aria-label="Draw Rectangle"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 -960 960 960"
+            className={`w-4 h-4 transition-colors duration-200 ${
+              activeTool === 'rectangle' ? 'fill-white' : 'fill-accent'
+            }`}
+            fill="currentColor"
+          >
+            <path d="M80-160v-640h800v640H80Zm80-80h640v-480H160v480Zm0 0v-480 480Z" />
+          </svg>
+        </button>
         {/* More tools will go here */}
       </div>
     </div>

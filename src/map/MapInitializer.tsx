@@ -21,6 +21,16 @@ export function createTerraDraw(map: maplibregl.Map) {
     modes: [
       new TerraDrawPolygonMode({
         modeName: 'polygon',
+        styles: {
+          fillColor: '#4357AD',
+          fillOpacity: 0.5,
+          outlineColor: '#3f5fbd',
+          outlineWidth: 2,
+          closingPointColor: '#ff0000',
+          closingPointOutlineColor: '#ffffff',
+          closingPointOutlineWidth: 2,
+          closingPointWidth: 8,
+        },
       }),
       new TerraDrawRectangleMode({
         modeName: 'rectangle',

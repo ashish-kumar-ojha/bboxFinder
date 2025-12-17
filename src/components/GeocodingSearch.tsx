@@ -44,7 +44,7 @@ const GeocodingSearch = ({ onLocationSelect }: GeocodingSearchProps) => {
     const timeoutId = setTimeout(async () => {
       try {
         const response = await fetch(
-          `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&addressdetails=1`,
+          `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=10&addressdetails=1`,
           {
             headers: {
               'User-Agent': 'BBoxFinder/1.0',
