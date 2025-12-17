@@ -37,10 +37,9 @@ const RightPanel = () => {
           <div className="flex-1 flex flex-col overflow-hidden">
             {/* Header */}
             <div className="px-4 py-3 border-b border-border flex items-center justify-between">
-
-              <div className='flex flex-row justify-center items-center'>
-                  <img src="/bbox-finder-logo.svg" alt="" className='w-5 inline' />
-                  <h1 className='p-0'>Bbox Finder</h1>
+              <div className="flex flex-row justify-center items-center">
+                <img src="/bbox-finder-logo.svg" alt="" className="w-5 inline" />
+                <h1 className="p-0">Bbox Finder</h1>
               </div>
               <button
                 onClick={handleToggle}
@@ -122,4 +121,3 @@ const RightPanel = () => {
 }
 
 export default RightPanel
-
