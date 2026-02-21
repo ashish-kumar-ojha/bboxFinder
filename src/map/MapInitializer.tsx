@@ -78,7 +78,7 @@ const MapInitializer = () => {
     }
   }, [])
 
-  return <div ref={containerRef} className="w-full h-full" />
+  return <div ref={containerRef} className="w-full h-full" data-map-container />
 }
 
 export default MapInitializer

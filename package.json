@@ -16,6 +16,7 @@
   "dependencies": {
     "@fontsource/roboto": "^5.2.9",
     "@watergis/maplibre-gl-terradraw": "^1.9.8",
+    "lucide-react": "^0.575.0",
     "maplibre-gl": "^5.13.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

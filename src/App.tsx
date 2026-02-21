@@ -2,6 +2,7 @@ import MapInitializer from './map/MapInitializer'
 import SidePanel from './components/SidePanel'
 import RightPanel from './components/RightPanel'
 import GeocodingSearch from './components/GeocodingSearch'
+import MapContextMenu from './components/MapContextMenu'
 import { mapController } from './map/MapController'
 import HoverCoordinates from './widgets/HoverCoordinates'
 
@@ -26,6 +27,7 @@ const App = () => {
           <div style={{ width: '100vw', height: '100vh' }}>
             <MapInitializer />
             <HoverCoordinates />
+            <MapContextMenu />
           </div>
         </div>
         <RightPanel />
