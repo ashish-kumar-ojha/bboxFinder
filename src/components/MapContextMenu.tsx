@@ -281,7 +281,7 @@ const MapContextMenu = () => {
       label: 'Close',
       icon: X,
       action: handleClose,
-      className: 'text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20',
+      className: 'text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 hover:cursor-pointer',
     },
   ]
 
@@ -347,7 +347,7 @@ const MapContextMenu = () => {
               <button
                 key={item.id}
                 onClick={item.action}
-                className={`w-full px-4 py-2 text-left text-sm hover:bg-muted/50 transition-colors flex items-center gap-2 ${
+                className={`w-full px-4 py-2 text-left text-sm hover:bg-muted/50 hover:cursor-pointer transition-colors flex items-center gap-2 ${
                   item.className || ''
                 }`}
               >
@@ -377,7 +377,7 @@ const MapContextMenu = () => {
                 <button
                   key={item.id}
                   onClick={item.action}
-                  className="w-full px-4 py-2 text-left text-sm hover:bg-muted/50 transition-colors flex items-center gap-2"
+                  className="w-full px-4 py-2 text-left text-sm hover:bg-muted/50 hover:cursor-pointer transition-colors flex items-center gap-2"
                 >
                   {Icon && <Icon className="w-4 h-4" />}
                   <span>{item.label}</span>
@@ -405,7 +405,7 @@ const MapContextMenu = () => {
                 <button
                   key={item.id}
                   onClick={item.action}
-                  className="w-full px-4 py-2 text-left text-sm hover:bg-muted/50 transition-colors flex items-center gap-2"
+                  className="w-full px-4 py-2 text-left text-sm hover:bg-muted/50 hover:cursor-pointer  transition-colors flex items-center gap-2"
                 >
                   {Icon && <Icon className="w-4 h-4" />}
                   <span>{item.label}</span>

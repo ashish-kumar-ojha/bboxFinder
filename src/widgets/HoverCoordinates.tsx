@@ -46,23 +46,14 @@ const HoverCoordinates = () => {
 
   return (
     <>
-      <div className="absolute bottom-4 left-4 select-none rounded-lg backdrop-blur-sm bg-black/40 shadow-md">
-        <div className="px-3 py-2.5">
-          {coordinates ? (
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 text-xs font-semibold text-white/90">
-                <span>{coordinates.lat}</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs font-semibold text-white/90">
-                <span>{coordinates.lng}</span>
-              </div>
-            </div>
-          ) : (
-            <div className="flex items-center gap-2 text-xs text-white/70 animate-pulse">
-              <span>Move cursor...</span>
-            </div>
-          )}
-        </div>
+      <div className="absolute bottom-2 right-2 z-[1000] select-none rounded-md backdrop-blur-sm bg-black/40 shadow-md px-3 py-1.5 pointer-events-none">
+        {coordinates ? (
+          <span className="text-xs font-medium text-white/90 tabular-nums">
+            {coordinates.lat}, {coordinates.lng}
+          </span>
+        ) : (
+          <span className="text-xs text-white/70 animate-pulse">Move cursor…</span>
+        )}
       </div>
       <Toaster position="top-right" reverseOrder={false} />
     </>

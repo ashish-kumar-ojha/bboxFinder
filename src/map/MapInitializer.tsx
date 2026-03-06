@@ -68,7 +68,8 @@ const MapInitializer = () => {
       const draw = createTerraDraw(map)
       mapController.setDraw(draw)
 
-      // Add the navigation control
+      // Add scale bar and navigation at bottom-right (scale at bottom, nav above)
+      map.addControl(new maplibregl.ScaleControl({ maxWidth: 100, unit: 'metric' }), 'bottom-right')
       map.addControl(new maplibregl.NavigationControl(), 'bottom-right')
     })
 

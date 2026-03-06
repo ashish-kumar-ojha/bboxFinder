@@ -1,5 +1,5 @@
 import MapInitializer from './map/MapInitializer'
-import SidePanel from './components/SidePanel'
+import LeftSidebar from './components/LeftSidebar'
 import GeocodingSearch from './components/GeocodingSearch'
 import MapContextMenu from './components/MapContextMenu'
 import { mapController } from './map/MapController'
@@ -18,17 +18,17 @@ const App = () => {
   }
 
   return (
-    <div className="w-screen h-screen flex flex-col bg-bg text-(--color-text)">
-      <main className="flex-1 flex min-h-0 relative">
-        <SidePanel />
-        <div className="flex-1 min-w-0 relative">
+    <div className="w-screen h-screen flex flex-col bg-bg text-text overflow-hidden">
+      <main className="flex-1 flex min-h-0 relative overflow-hidden">
+        <div className="flex-1 min-w-0 min-h-0 relative overflow-hidden">
           <GeocodingSearch onLocationSelect={handleLocationSelect} />
-          <div style={{ width: '100vw', height: '100vh' }}>
+          <div className="absolute inset-0">
             <MapInitializer />
             <HoverCoordinates />
             <MapContextMenu />
           </div>
         </div>
+        <LeftSidebar />
       </main>
     </div>
   )
